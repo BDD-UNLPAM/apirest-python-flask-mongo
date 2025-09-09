@@ -1,6 +1,6 @@
 CRUD Clientes - Flask (templates) + MongoDB - Docker Compose
 
-!(./api_rest_clientes_v2.png)
+![imagen](.api_rest_clientes_v2.png)
 
 Servicios:
 - mongo: MongoDB sin autenticación
