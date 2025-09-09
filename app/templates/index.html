@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+  <p><a class="button" href="{{ url_for('nuevo_cliente') }}">Nuevo cliente</a></p>
+  <table>
+    <thead><tr><th>id</th><th>Nombre</th><th>DNI</th><th>Email</th><th>Fecha Nac.</th><th>Acciones</th></tr></thead>
+    <tbody>
+      {% for c in clientes %}
+      <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.dni }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.fecha_nacimiento }}</td>
+        <td>
+          <a href="{{ url_for('editar_cliente', id=c.id) }}">Editar</a>
+          <form class="inline" action="{{ url_for('eliminar_cliente', id=c.id) }}" method="post" onsubmit="return confirm('Eliminar cliente?')">
+            <button type="submit">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

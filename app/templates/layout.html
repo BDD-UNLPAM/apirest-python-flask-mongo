@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ABM Clientes</title>
+  <style>
+    body{font-family:Arial, sans-serif; margin:20px;}
+    .msg{padding:8px;border-radius:4px;margin-bottom:10px;}
+    .success{background:#e6ffed;color:#055a19;}
+    .error{background:#ffe6e6;color:#8a0b0b;}
+    table{width:100%;border-collapse:collapse;margin-top:10px;}
+    th,td{border:1px solid #ccc;padding:8px}
+    th{background:#f0f0f0}
+    a.button{display:inline-block;padding:6px 10px;background:#007bff;color:white;text-decoration:none;border-radius:4px}
+    form.inline{display:inline}
+  </style>
+</head>
+<body>
+  <h1>ABM Clientes</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for cat, msg in messages %}
+        <div class="msg {{ 'success' if cat=='success' else 'error' }}">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</body>
+</html>
